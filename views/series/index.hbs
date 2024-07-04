@@ -23,10 +23,14 @@
               >{{this.name}}</h5>
               <p class="card-text"><strong>Género:</strong> {{this.genero}}</p>
               <div>
-                <a href="/managerSerie" class="btn btn-primary float-end">
-                  Editar
-                </a>
+
                 <form method="post" action="/deteteSerie" class="form-delete">
+                  <a
+                    href="/EditSeries/{{this.id}}"
+                    class="btn btn-primary float-end"
+                  >
+                    Editar
+                  </a>
                   <input type="hidden" value="{{this.id}}" name="GeneroId" />
                   <button type="submit" class="btn btn-danger delete">
                     Borrar

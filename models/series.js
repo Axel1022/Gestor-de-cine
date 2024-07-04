@@ -22,10 +22,10 @@ module.exports = class Serie {
     this.genero = genero;
   }
   save() {
-    jsonFileHandler.ReadAllData(dataPath,(series)=> {
+    jsonFileHandler.ReadAllData(dataPath, (series) => {
       if (this.id) {
         const indexSerie = series.findIndex((s) => s.id === this.id);
-        if (indexSerie) {
+        if (indexSerie >= 0) {
           series[indexSerie] = this;
           jsonFileHandler.WriteData(dataPath, series);
         }
@@ -36,6 +36,7 @@ module.exports = class Serie {
       }
     });
   }
+
   static getAll(cb) {
     jsonFileHandler.ReadAllData(dataPath, cb);
   }
@@ -51,4 +52,4 @@ module.exports = class Serie {
       jsonFileHandler.WriteData(dataPath, NewListSeries);
     });
   }
-}
+};

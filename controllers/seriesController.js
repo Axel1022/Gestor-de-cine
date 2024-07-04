@@ -17,7 +17,7 @@ exports.getSerie = (req, res, next) => {
       pageTitle: "Admin | Series",
       Series: series,
       hasSeries: series.length > 0,
-      IsListSerie: true
+      IsListSerie: true,
     });
   });
 };
@@ -25,7 +25,26 @@ exports.getModSerie = (req, res, next) => {
   GeneroModel.getAll((generos) => {
     res.render("series/modSeries", {
       pageTitle: "CineHd | Modificad",
-      Generos: generos
+      Generos: generos,
+      EditMode: false,
+    });
+  });
+};
+
+exports.getModEditSerie = (req, res, next) => {
+  const SerieId = req.params.SerieId;
+  SerieModel.getByID(SerieId, (serie) => {
+    if (!serie) {
+      return res.redirect("/managerSerie");
+    }
+
+    GeneroModel.getAll((generos) => {
+      res.render("series/modSeries", {
+        pageTitle: `Modificad | ${serie.name}`,
+        Generos: generos,
+        Serie: serie,
+        EditMode: true,
+      });
     });
   });
 };
@@ -37,6 +56,18 @@ exports.postModSerie = (req, res, next) => {
   const genero = req.body.Genero;
 
   const serie = new SerieModel(null, nombre, imgUrl, link, genero);
+  serie.save();
+  res.redirect("/managerSerie");
+};
+
+exports.postEditSerie = (req, res, next) => {
+  const id = req.body.id;
+  const nombre = req.body.Title;
+  const imgUrl = req.body.ImgUrl;
+  const link = req.body.Link;
+  const genero = req.body.Genero;
+
+  const serie = new SerieModel(id, nombre, imgUrl, link, genero);
   serie.save();
   res.redirect("/managerSerie");
 };

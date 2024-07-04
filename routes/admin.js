@@ -17,7 +17,15 @@ router.get("/Detalle/:serieId", serieController.getSerieId);
 //Deletes
 router.post("/deteteGenero", generoController.postDeleteGenero);
 router.post("/deteteSerie", serieController.postDeleteSerie);
-//Editar
+//Editar Series
+router.get("/EditSeries/:SerieId", serieController.getModEditSerie);
+router.post("/SeriesEdit", serieController.postEditSerie);
+
+//Editar Generos
+router.get("/EditGeneros/:GeneroId", generoController.getModEditGenero);
+router.post("/GeneroEdit", generoController.postEditGenero);
+
+
 
 //Aquí puede que haya bobo
 

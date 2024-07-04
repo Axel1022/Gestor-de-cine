@@ -4,7 +4,7 @@
       Formulario de Generos
     </div>
     <div class="card-body">
-      <form method="POST" action="/AddGeneros">
+      <form method="POST" action="/{{#if EditMode}}GeneroEdit{{else}}AddGeneros{{/if}}">
         <div class="form-group">
           <label for="Genero" class="form-label">*Genero:</label>
           <input
@@ -13,11 +13,23 @@
             id="genero"
             name="Genero"
             required
+            {{#if EditMode}}
+            value="{{Genero.genero}}"
+            {{/if}}
           />
         </div>
         <div class="form-group">
           <label for="Url" class="form-label">Url Imagen:</label>
-          <input type="text" class="form-control" id="Url" name="Url"  />
+          <input type="text"
+          {{#if EditMode}}
+          value="{{Genero.urlImg}}"
+          {{/if}}
+          class="form-control" id="Url" name="Url"  />
+
+          {{#if EditMode}}
+           <input type="hidden" value="{{Genero.id}}" name="id">
+          {{/if}}
+
         </div>
         <div>
           <button

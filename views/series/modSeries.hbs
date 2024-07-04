@@ -4,27 +4,32 @@
       Formulario de Series
     </div>
     <div class="card-body">
-      <form method="POST" action="/AddSeries">
+      <form method="POST" action="/{{#if EditMode}}SeriesEdit{{else}}AddSeries{{/if}}">
         <div class="form-group">
           <label for="title" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" id="title" name="Title" required/>
+          <input type="text" {{#if EditMode}} value="{{Serie.name}}" {{/if}} class="form-control" id="title" name="Title" required/>
         </div>
         <div class="form-group">
           <label for="imgurl" class="form-label">Url Img:</label>
-          <input type="text" class="form-control" id="imgurl" name="ImgUrl" required />
+          <input type="text" {{#if EditMode}} value="{{Serie.imgUrl}}" {{/if}} class="form-control" id="imgurl" name="ImgUrl" required />
         </div>
         <div class="form-group">
           <label for="link" class="form-label">Link:</label>
-          <input type="text" class="form-control" id="link" name="Link" required />
+          <input type="text" {{#if EditMode}} value="{{Serie.link}}" {{/if}} class="form-control" id="link" name="Link" required />
         </div>
         <div class="form-group">
           <label for="genero" class="form-label">Género:</label>
           <select name="Genero" id="genero" class="form-control" required>
             <option value="">Selecciona un género</option>
+            {{#if EditMode}} <option selected value="{{Serie.genero}}">{{Serie.genero}}</option> {{/if}}
             {{#each Generos}}
             <option value="{{this.genero}}">{{this.genero}}</option>
             {{/each}}
           </select>
+          {{#if EditMode}}
+           <input type="hidden" value="{{Serie.id}}" name="id">
+          {{/if}}
+
         </div>
         <div>
           <button type="submit" class="btn btn-primary mt-3 float-end">Enviar</button>
