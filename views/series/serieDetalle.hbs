@@ -1,0 +1,40 @@
+{{#if hasSerie}}
+  <div class="container m-3">
+    <div class="text-center">
+      <H1 class="text inline-block">{{Serie.name}} - {{Serie.genero}}</H1>
+    </div>
+    <a href="/" class="btn btn-outline-warning ">Volver</a>
+
+    <div class="row">
+      <!-- Columna para la imagen -->
+      <div class="col-12 col-sm-4 mt-3 p-3">
+        <div
+          class="card shadow"
+          style="border-top-left-radius: 10px; border-top-right-radius: 10px;"
+        >
+          <img
+            src="{{Serie.imgUrl}}"
+            class="img-fluid"
+            style="height: 500px; width: 100%; object-fit: contain; border-top-left-radius: 10px; border-top-right-radius: 10px;"
+            alt="{{Serie.name}}"
+          />
+        </div>
+      </div>
+      <!-- Columna para la información -->
+      <div class="col-12 col-sm-8 mt-3 p-3">
+        <iframe
+          width="100%"
+          height="500"
+          src="{{Serie.link}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <div class="container">
+    <h1>No se encontró la serie.</h1>
+  </div>
+{{/if}}

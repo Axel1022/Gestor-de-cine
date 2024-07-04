@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      Formulario de Series
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/AddSeries">
+        <div class="form-group">
+          <label for="title" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="title" name="Title" required/>
+        </div>
+        <div class="form-group">
+          <label for="imgurl" class="form-label">Url Img:</label>
+          <input type="text" class="form-control" id="imgurl" name="ImgUrl" required />
+        </div>
+        <div class="form-group">
+          <label for="link" class="form-label">Link:</label>
+          <input type="text" class="form-control" id="link" name="Link" required />
+        </div>
+        <div class="form-group">
+          <label for="genero" class="form-label">Género:</label>
+          <select name="Genero" id="genero" class="form-control" required>
+            <option value="">Selecciona un género</option>
+            {{#each Generos}}
+            <option value="{{this.genero}}">{{this.genero}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary mt-3 float-end">Enviar</button>
+          <a href="/managerSerie" class="btn btn-warning mt-3 float-end me-3">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+          <a class="navbar-brand" href="/">
+            <img
+              src="/img/online-cinema-art-movie-watching-with-popcorn-3d-glasses-and-film-strip-cinematography-concept-png.webp"
+              width="50"
+              height="50"
+              alt="Online Cinema Logo"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home
+                  <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/managerSerie">Series</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/managerGenero">Géneros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Elmer🌴</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+
+        {{{body}}}
+      </main>
+      <footer class="py-3 mt-4">
+        <div class="container">
+          <p class="text-center mb-0">&copy; 2024 Gary Campusano. Todos los
+            derechos reservados.</p>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+    {{#if IsListSerie}}
+    <script src="/js/delete.js"></script>
+    {{/if}}
+  </body>
+</html>

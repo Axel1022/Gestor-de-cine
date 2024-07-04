@@ -1,0 +1,48 @@
+{{#if hasSeries}}
+  <div class="container m-3">
+
+    <h1 class="text-center">Administrador - Series</h1>
+    <a href="/modSeries" class="btn btn-success">+ Nueva serie</a>
+    <div class="row">
+      {{#each Series}}
+        <div class="col-12 col-sm-3 mt-3 p-3">
+          <div
+            class="card shadow"
+            style="border-top-left-radius: 10px; border-top-right-radius: 10px;"
+          >
+            <img
+              src="{{this.imgUrl}}"
+              class="card-img-top img-fluid"
+              style="height: 300px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"
+              alt="{{this.name}}"
+            />
+            <div class="card-body">
+              <h5
+                class="card-title text-truncate"
+                style="max-width: 500px;"
+              >{{this.name}}</h5>
+              <p class="card-text"><strong>Género:</strong> {{this.genero}}</p>
+              <div>
+                <a href="/managerSerie" class="btn btn-primary float-end">
+                  Editar
+                </a>
+                <form method="post" action="/deteteSerie" class="form-delete">
+                  <input type="hidden" value="{{this.id}}" name="GeneroId" />
+                  <button type="submit" class="btn btn-danger delete">
+                    Borrar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+  </div>
+{{else}}
+  <div class="container">
+    <h1>No se encontraron series.</h1>
+    <a href="/modSeries" class="btn btn-success">+ Nueva serie</a>
+  </div>
+{{/if}}

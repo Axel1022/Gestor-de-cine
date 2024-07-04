@@ -1,0 +1,62 @@
+{{#if hasGeneros}}
+  <div class="container m-3">
+
+    <h1 class="text-center">Administrador - Generos</h1>
+    <a href="/modGeneros" class="btn btn-success">+ Nuevo genero</a>
+    {{! Hay que cambiar esto too, xd }}
+    <div class="row">
+      {{#each Generos}}
+        <div class="col-12 col-sm-3 mt-3 p-3">
+          <div
+            class="card shadow"
+            style="border-top-left-radius: 10px; border-top-right-radius: 10px;"
+          >
+            <h5
+              class="card-title text-center mt-3"
+              style="max-width: 500px;"
+            >{{this.genero}}</h5>
+
+            {{#if this.urlImg}}
+              <img
+                src="{{this.urlImg}}"
+                class="card-img-top img-fluid"
+                style="height: 300px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"
+                alt="Imagen"
+              />
+            {{else}}
+              <img
+                src="https://images.vexels.com/media/users/3/318492/isolated/preview/4c3ef0e5fa3ca32df0c01597a95e3a5a-icono-azul-de-la-claqueta-de-cine.png"
+                class="card-img-top img-fluid"
+                style="height: 300px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"
+                alt="Icono azul de la claqueta de cine"
+              />
+            {{/if}}
+
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+
+                <form method="post" action="/deteteGenero" class="form-delete">
+                  <a href="#" class="btn btn-primary me-2">
+                    Editar
+                  </a>
+                  <input type="hidden" value="{{this.id}}" name="GeneroId" />
+                  <button type="submit" class="btn btn-danger delete">
+                    Borrar
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+  </div>
+{{else}}
+  <div class="container">
+    <h1>No se encontraron generos.</h1>
+    <a href="/modGeneros" class="btn btn-success">+ Nuevo genero</a>
+    {{! -- Esto hay que modificarlo, xd }}
+  </div>
+{{/if}}

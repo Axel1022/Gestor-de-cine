@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      Formulario de Generos
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/AddGeneros">
+        <div class="form-group">
+          <label for="Genero" class="form-label">*Genero:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="genero"
+            name="Genero"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="Url" class="form-label">Url Imagen:</label>
+          <input type="text" class="form-control" id="Url" name="Url"  />
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="btn btn-primary mt-3 float-end"
+          >Enviar</button>
+          <a
+            href="/managerGenero"
+            class="btn btn-warning mt-3 float-end me-3"
+          >Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
