@@ -1,30 +1,46 @@
 {{#if hasSeries}}
-  <div class="container m-3 ">
-    <form class="float-end">
-          <div class="form-group row">
-            <div class="col-sm-8">
-              <input
-                type="text"
-                class="form-control"
-                id="inputSerieGenero"
-                placeholder="Serie / Género"
-              />
-            </div>
-            <div class="col-sm-2">
-              <button type="submit" class="btn btn-primary">Buscar</button>
-            </div>
-          </div>
-        </form>
+  <div class="container m-3">
+    <form method="post" action="/buscarSeries" class="float-end">
+  <div class="form-group row">
+    <div class="col-sm-8">
+      <input
+        type="text"
+        class="form-control"
+        id="inputSerieGenero"
+        name="info"
+        placeholder="Serie / Género"
+      />
+    </div>
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+  </div>
+</form>
+
     <h1>Lista de Series</h1>
     <div class="row">
       {{#each Series}}
-        <div class="col-12 col-sm-3 mt-3 p-3" >
-          <div class="card shadow" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
-            <img src="{{this.imgUrl}}" class="card-img-top img-fluid " style="height: 300px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;" alt="{{this.name}}">
+        <div class="col-12 col-sm-3 mt-3 p-3">
+          <div
+            class="card shadow"
+            style="border-top-left-radius: 10px; border-top-right-radius: 10px;"
+          >
+            <img
+              src="{{this.imgUrl}}"
+              class="card-img-top img-fluid"
+              style="height: 300px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"
+              alt="{{this.name}}"
+            />
             <div class="card-body">
-              <h5 class="card-title text-truncate" style="max-width: 500px;">{{this.name}}</h5>
+              <h5
+                class="card-title text-truncate"
+                style="max-width: 500px;"
+              >{{this.name}}</h5>
               <p class="card-text"><strong>Género:</strong> {{this.genero}}</p>
-              <a href="/Detalle/{{this.id}}" class="btn btn-primary float-end">Ver más</a>
+              <a
+                href="/Detalle/{{this.id}}"
+                class="btn btn-primary float-end"
+              >Ver más</a>
             </div>
           </div>
         </div>
@@ -35,5 +51,6 @@
 {{else}}
   <div class="container">
     <h1>No se encontraron series.</h1>
+    <a href="/" class="btn btn-primary">Volver</a>
   </div>
 {{/if}}

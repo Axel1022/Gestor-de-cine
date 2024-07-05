@@ -1,5 +1,6 @@
 const SerieModel = require("../models/series");
 const GeneroModel = require("../models/generos");
+const convertToEmbedUrl = require("../utils/UrlYoutube");
 exports.getSerieId = (req, res, next) => {
   const serieId = req.params.serieId;
 
@@ -50,9 +51,11 @@ exports.getModEditSerie = (req, res, next) => {
 };
 
 exports.postModSerie = (req, res, next) => {
+  const url = convertToEmbedUrl.convertToEmbedUrl(req.body.Link);
+  console.log("Url: " + url);
   const nombre = req.body.Title;
   const imgUrl = req.body.ImgUrl;
-  const link = req.body.Link;
+  const link = url;
   const genero = req.body.Genero;
 
   const serie = new SerieModel(null, nombre, imgUrl, link, genero);
@@ -61,10 +64,12 @@ exports.postModSerie = (req, res, next) => {
 };
 
 exports.postEditSerie = (req, res, next) => {
+  const url = convertToEmbedUrl.convertToEmbedUrl(req.body.Link);
+  console.log("Url: " + url);
   const id = req.body.id;
   const nombre = req.body.Title;
   const imgUrl = req.body.ImgUrl;
-  const link = req.body.Link;
+  const link = url;
   const genero = req.body.Genero;
 
   const serie = new SerieModel(id, nombre, imgUrl, link, genero);
@@ -76,4 +81,15 @@ exports.postDeleteSerie = (req, res, next) => {
   const GeneroId = req.body.GeneroId;
   SerieModel.delete(GeneroId);
   res.redirect("/managerSerie");
+};
+exports.postBuscarSeries = (req, res, next) => {
+  const info = req.body.info;
+  SerieModel.buscar(info, (resultados) => {
+    res.render("cine/home", {
+      pageTitle: `Buscar | "${info}"`,
+      Series: resultados,
+      hasSeries: resultados.length > 0,
+      IsListSerie: true,
+    });
+  });
 };

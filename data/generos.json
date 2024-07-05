@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": "0.2019240020828028",
+    "genero": "Anime",
+    "urlImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Anime_eye.svg/1200px-Anime_eye.svg.png"
+  },
+  {
+    "id": "0.21775920808773241",
+    "genero": "Comedia",
+    "urlImg": "https://cdn-icons-png.flaticon.com/512/1719/1719855.png"
+  },
+  {
+    "id": "0.9654009870019398",
+    "genero": "Ciencia Ficción",
+    "urlImg": "https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-ai-generated-scifi-avatar-art-with-robotic-body-armour-png-image_6702442.png"
+  },
+  {
+    "id": "0.20349069932137187",
+    "genero": "Dramática ",
+    "urlImg": "https://espacioprofesores.com/storage/photos/14/drama.png"
+  }
+]

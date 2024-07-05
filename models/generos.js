@@ -13,7 +13,7 @@ module.exports = class Genero {
     this.urlImg = url;
   }
   save() {
-    jsonFileHandler.ReadAllData(dataPath,(generos)=> {
+    jsonFileHandler.ReadAllData(dataPath, (generos) => {
       if (this.id) {
         const indexGenero = generos.findIndex((g) => g.id === this.id);
         if (indexGenero) {
@@ -42,4 +42,4 @@ module.exports = class Genero {
       jsonFileHandler.WriteData(dataPath, NewListGeneros);
     });
   }
-}
+};

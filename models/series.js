@@ -52,4 +52,7 @@ module.exports = class Serie {
       jsonFileHandler.WriteData(dataPath, NewListSeries);
     });
   }
+  static buscar(info, cb) {
+    jsonFileHandler.Buscar(dataPath, info, cb);
+  }
 };

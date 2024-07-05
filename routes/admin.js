@@ -25,6 +25,8 @@ router.post("/SeriesEdit", serieController.postEditSerie);
 router.get("/EditGeneros/:GeneroId", generoController.getModEditGenero);
 router.post("/GeneroEdit", generoController.postEditGenero);
 
+//Buscar
+router.post("/buscarSeries", serieController.postBuscarSeries);
 
 
 //Aquí puede que haya bobo

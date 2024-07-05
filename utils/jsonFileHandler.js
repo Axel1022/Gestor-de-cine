@@ -15,3 +15,22 @@ exports.WriteData = (dataPath, data) => {
     console.log(error);
   });
 };
+exports.Buscar = (dataPath, info, callback) => {
+  fs.readFile(dataPath, "utf8", (err, data) => {
+    if (err) {
+      return callback([]);
+    }
+    try {
+      const jsonData = JSON.parse(data);
+      const resultados = jsonData.filter(
+        (item) =>
+          (item.name && item.name.toLowerCase().includes(info.toLowerCase())) ||
+          (item.genero &&
+            item.genero.toLowerCase().includes(info.toLowerCase()))
+      );
+      callback(resultados);
+    } catch (e) {
+      callback([]);
+    }
+  });
+};
